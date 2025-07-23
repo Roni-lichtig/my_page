@@ -93,6 +93,13 @@ document.getElementById('surpriseBtn').addEventListener('click', () => {
   document.getElementById('resultContainer').style.display = 'block';
 });
 
+// כאן השינוי: כשמקליקים על bookBtn, נעבור לדף עם שם המסעדה בפרמטר URL
 document.getElementById('bookBtn').addEventListener('click', () => {
-  alert('Not implemented');
+  const restaurantName = document.getElementById('resName').textContent.trim();
+  if (!restaurantName) {
+    alert('Please select a restaurant first!');
+    return;
+  }
+  const encodedName = encodeURIComponent(restaurantName);
+  window.location.href = `Res_page_new.html?restaurant=${encodedName}`;
 });
