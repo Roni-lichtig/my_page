@@ -1,46 +1,70 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  text-align: center;
-  padding: 2rem;
+main {
+  position: relative;
+  padding-top: 15px;
 }
 
-.container {
-  max-width: 600px;
+/* row animation on swap */
+.row {
+  transition: flex-direction 0.3s ease;
+}
+
+.row.swapped {
+  flex-direction: row-reverse;
+}
+
+.logo-img {
+  height: 250px;
+}
+
+.address-title {
+  margin-top: 1.5rem;
+}
+
+.address-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.uniform-img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.custom-header {
+  background-color: #343a40;
+  padding: 1rem 0;
+}
+
+.custom-header img {
+  height: 50px;
+  width: auto;
+  display: block;
   margin: 0 auto;
 }
 
-select, button {
-  margin: 1rem;
-  padding: 0.5rem;
-  font-size: 1rem;
+.custom-header .container {
+  text-align: center;
 }
 
-button {
-  background-color: #058181;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+footer a:hover {
+  text-decoration: underline;
 }
 
-button:hover {
-  background-color: #046e6e;
+.back-button {
+  margin-top: 2rem;
+  display: inline-block;
 }
 
-.restaurant-card {
+/* תוספת לעיצוב כרטיס */
+#restaurantInfo {
   margin-top: 2rem;
   padding: 1rem;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.restaurant-card img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
+  align-items: center;
 }
 
 .hidden {
