@@ -65,28 +65,32 @@ const restaurants = [
 ];
 
 document.getElementById('surpriseBtn').addEventListener('click', () => {
-  const selectedCategory = document.getElementById('categorySelect').value;
-  const filtered = restaurants.filter(r => r.category === selectedCategory);
+  const selectedCategory = document.getElementById('categorySelect').value.toLowerCase();
 
-  if (filtered.length === 0) {
+  if (!selectedCategory) {
+    alert('Please select a category');
+    return;
+  }
+
+  const filteredRestaurants = restaurants.filter(r => r.category === selectedCategory);
+
+  if (filteredRestaurants.length === 0) {
     alert('No restaurants found in this category.');
     return;
   }
 
-  const randomRes = filtered[Math.floor(Math.random() * filtered.length)];
+  // בוחר רנדומלית מסעדה מתוך המסוננות
+  const randomRestaurant = filteredRestaurants[Math.floor(Math.random() * filteredRestaurants.length)];
 
-  document.getElementById('resName').textContent = randomRes.name;
-  document.getElementById('resImage').src = randomRes.image;
-  document.getElementById('resImage').alt = randomRes.name;
-  document.getElementById('resDesc').textContent = randomRes.description;
+  // מציג את הפרטים בדף
+  document.getElementById('resName').textContent = randomRestaurant.name;
+  document.getElementById('resImage').src = randomRestaurant.image;
+  document.getElementById('resImage').alt = randomRestaurant.name;
+  document.getElementById('resDesc').textContent = randomRestaurant.description;
 
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomRes.address)}`;
-  document.getElementById('resAddr').textContent = randomRes.address;
-  document.getElementById('resAddrLink').href = mapsLink;
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomRestaurant.address)}`;
+  document.getElementById('resAddr').textContent = randomRestaurant.address;
+  document.getElementById('resAddrLink').href = mapsUrl;
 
   document.getElementById('resultContainer').style.display = 'block';
-});
-
-document.getElementById('bookBtn').addEventListener('click', () => {
-  alert('Not implemented');
 });
