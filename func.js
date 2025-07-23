@@ -63,7 +63,6 @@ const restaurants = [
     address: "10 Yitzhak Rabin Blvd, Jerusalem"
   }
 ];
-
 document.getElementById('surpriseBtn').addEventListener('click', () => {
   const selectedCategory = document.getElementById('categorySelect').value;
 
@@ -72,7 +71,7 @@ document.getElementById('surpriseBtn').addEventListener('click', () => {
     return;
   }
 
-  const filteredRestaurants = restaurants.filter(r => r.category.toUpperCase() === selectedCategory.toUpperCase());
+  const filteredRestaurants = restaurants.filter(r => r.category === selectedCategory);
 
   if (filteredRestaurants.length === 0) {
     alert('No restaurants found in this category.');
@@ -81,18 +80,13 @@ document.getElementById('surpriseBtn').addEventListener('click', () => {
 
   const randomRestaurant = filteredRestaurants[Math.floor(Math.random() * filteredRestaurants.length)];
 
+  // הצגה במסך
   document.getElementById('resName').textContent = randomRestaurant.name;
   document.getElementById('resImage').src = randomRestaurant.image;
   document.getElementById('resImage').alt = randomRestaurant.name;
   document.getElementById('resDesc').textContent = randomRestaurant.description;
-
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomRestaurant.address)}`;
   document.getElementById('resAddrLink').href = mapsUrl;
   document.getElementById('resAddrLink').textContent = randomRestaurant.address;
-
   document.getElementById('resultContainer').style.display = 'block';
-});
-
-document.getElementById('bookBtn').addEventListener('click', () => {
-  alert('Not implemented');
 });
