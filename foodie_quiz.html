@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My Foodie Fun Quiz | DineWise</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quiz_layout.css"><!-- עיצוב החידון -->
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+<!-- ===== HEADER ===== -->
+<header class="custom-header">
+  <nav class="navbar navbar-expand-lg px-3 bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="homepage.html">DineWise</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarQuiz" aria-controls="navbarQuiz"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarQuiz">
+        <ul class="navbar-nav align-items-center">
+          <!-- קישור יחיד – Home -->
+          <li class="nav-item">
+            <a class="nav-link text-warning active" href="homepage.html">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="container my-4 flex-grow-1">
+  <article class="quiz-card card shadow-sm p-4 mx-auto">
+    <h2 class="page-title text-center mb-4">My Foodie Fun Quiz</h2>
+
+    <div id="quizArea">
+
+      <!-- step 0 -->
+      <section id="step0" class="text-center">
+        <p class="lead">Discover what kind of foodie you are.<br>Ready?</p>
+        <button id="startBtn" class="btn dw-btn-yellow px-4">Start Quiz</button>
+      </section>
+
+      <!-- step 1 – cuisine -->
+      <section id="step1" class="d-none">
+        <h5>1 · Choose a cuisine</h5>
+        <div class="row g-3 mt-3">
+          <div class="col-6"><button class="option-btn" data-value="italian">Italian</button></div>
+          <div class="col-6"><button class="option-btn" data-value="thai">Thai</button></div>
+          <div class="col-6"><button class="option-btn" data-value="japanese">Japanese</button></div>
+          <div class="col-6"><button class="option-btn" data-value="mexican">Mexican</button></div>
+        </div>
+      </section>
+
+      <!-- step 2 – spice -->
+      <section id="step2" class="d-none">
+        <h5>2 · Spice level?</h5>
+        <div class="row g-3 mt-3">
+          <div class="col-4"><button class="option-btn" data-value="mild">Mild</button></div>
+          <div class="col-4"><button class="option-btn" data-value="medium">Medium</button></div>
+          <div class="col-4"><button class="option-btn" data-value="hot">🔥 Hot</button></div>
+        </div>
+      </section>
+
+      <!-- step 3 – dessert -->
+      <section id="step3" class="d-none">
+        <h5>3 · Pick a dessert</h5>
+        <div class="row g-3 mt-3">
+          <div class="col-6"><button class="option-btn" data-value="tiramisu">Tiramisu</button></div>
+          <div class="col-6"><button class="option-btn" data-value="coconut_ice">Coconut Ice‑cream</button></div>
+          <div class="col-6"><button class="option-btn" data-value="cheesecake">Cheesecake</button></div>
+          <div class="col-6"><button class="option-btn" data-value="churros">Churros</button></div>
+        </div>
+      </section>
+
+      <!-- step 4 – atmosphere -->
+      <section id="step4" class="d-none">
+        <h5>4 · Preferred atmosphere</h5>
+        <div class="row g-3 mt-3">
+          <div class="col-6"><button class="option-btn" data-value="cozy">Cozy & Rustic</button></div>
+          <div class="col-6"><button class="option-btn" data-value="lively">Lively & Colorful</button></div>
+          <div class="col-6"><button class="option-btn" data-value="minimal">Minimal & Modern</button></div>
+          <div class="col-6"><button class="option-btn" data-value="street">Street‑Food Vibes</button></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- result -->
+    <section id="resultCard" class="alert dw-alert-success mt-4"></section>
+  </article>
+</main>
+
+<footer class="text-center py-3 border-top mt-auto small">
+  <small class="text-muted">&copy; 2025 DineWise Inc.</small>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+(() => {
+  const steps=['step0','step1','step2','step3','step4']; let s=0,ans={};
+  const show=id=>steps.forEach(k=>document.getElementById(k).classList.toggle('d-none',k!==id));
+  $('#startBtn').on('click',()=>{s=1;show('step1');});
+  $('.option-btn').on('click',function(){
+    $(this).addClass('selected').parent().siblings().find('.option-btn').removeClass('selected');
+    ans['q'+s]=$(this).data('value');
+    s<4 ? (++s,show('step'+s)) : finish();
+  });
+  function finish(){
+    $('#resultCard').hide().html(build(ans)).fadeIn(400); $('#quizArea').hide();
+  }
+  function build({q1,q2,q3,q4}){
+    const c={italian:'Classic Comfort Lover',thai:'Spice Seeker',japanese:'Fresh & Balanced Foodie',mexican:'Fiesta Fan'}[q1];
+    const sp={mild:'gentle flavours',medium:'a balanced kick',hot:'fiery heat'}[q2];
+    const at={cozy:'cozy rustic spot',lively:'lively colourful place',minimal:'minimal modern setting',street:'street‑food vibes'}[q4];
+    const de={tiramisu:'tiramisù',coconut_ice:'coconut ice‑cream',cheesecake:'fluffy cheesecake',churros:'cinnamon‑sugar churros'}[q3];
+    return `You’re a <strong>${c}</strong> who enjoys <em>${sp}</em> in a ${at}.<br>Don’t forget ${de}!`;
+  }
+})();
+</script>
+</body>
+</html>
