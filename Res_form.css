@@ -1,0 +1,45 @@
+/* ─────────  Res_form.css  ───────── */
+:root{
+  --dw-teal:#058181;
+  --dw-yellow:#ffc107;
+  --dw-blue:#0d6efd;
+  --dw-red:#dc3545;
+}
+
+/* basis */
+body{font-family:'Poppins',sans-serif;}
+.page-title{color:#fff;background:var(--dw-teal);padding:.4rem .75rem;border-radius:.25rem;}
+
+/* ===== NAVBAR (מ‑Restaurants.css) ===== */
+.navbar{
+  position:relative;
+  z-index:10;
+}
+.navbar-brand img{max-height:120px;}
+form[role="search"]{width:300px;}
+
+@media (max-width:768px){
+  .navbar-brand img{height:80px!important;}
+  .navbar-collapse{flex-direction:column;align-items:flex-start;}
+  .navbar-collapse form[role="search"]{width:100%;}
+  .navbar-collapse .form-control{width:100%;margin-bottom:.5rem;}
+  .navbar-collapse .btn{width:100%;}
+}
+
+/* links + yellow button */
+.dw-link{color:var(--dw-yellow);font-weight:500;text-decoration:none;}
+.dw-link:hover{color:var(--dw-teal);}
+.dw-btn-yellow{background:var(--dw-yellow);border:none;}
+.dw-btn-yellow:hover{background:#e0a800;color:#fff;}
+
+/* bouncing icon */
+.title-with-icon{display:flex;align-items:center;justify-content:center;gap:.75rem;}
+.form-logo-sm{width:48px;height:48px;border-radius:50%;animation:bounce 2.5s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* ===== MODALS ===== */
+.dw-modal{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,.45);z-index:1050;}
+.dw-modal__box{background:#fff;color:#212529;padding:1.5rem 2rem;border-radius:.5rem;max-width:90%;width:360px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.dw-modal--blue .dw-modal__box{background:var(--dw-blue);color:#fff;}
+.dw-modal--red  .dw-modal__box{background:var(--dw-red); color:#fff;}
+body.modal-open{overflow:hidden;}
