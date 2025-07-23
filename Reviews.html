@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DineWise Reviews & Recommendations</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Reviews.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="custom-header">
+  <nav class="navbar navbar-expand-lg px-3">
+  <div class="container d-flex flex-column align-items-center">
+    <a class="navbar-brand d-flex align-items-center me-auto" href="homepage.html">
+      <img src="logo_no_bg.png" alt="DineWise Logo" class="img-fluid" style="height: 200px;" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link text-warning active" href="homepage.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-warning" href="Restaurants.html">Restaurants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-warning" href="#">Book A Table</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-warning" href="Reviews.html">Recommendations</a>
+        </li>
+      </ul>
+
+      <form class="d-flex ms-3 mt-2 mt-lg-0" role="search">
+        <input class="form-control me-2" type="search" placeholder="Restaurant Name" aria-label="Search" />
+        <button class="btn btn-warning text-white" id="searchBtn" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+</header>
+<main class="container my-5">
+  <section class="text-center mb-5">
+    <h1>Restaurant Reviews & Recommendations</h1>
+    <h3 class="mt-3">Find Your Next Restaurant Based On Reviews</h3>
+  </section>
+
+<div class="container">
+  <div class="row">
+  <aside class="col-md-3 mb-4" aria-label="Sidebar Filter">
+<a href="recommendation.html" id="addReviewBtn" class="btn btn-primary add-review-btn">+ Add New Review</a>
+<form class="d-flex" role="search">
+<input class="form-control me-2" id="searchRest" type="search" placeholder="Restaurant Name" aria-label="Search">
+<button class="btn btn-warning text-white" id="applySearchBtn" type="button">Search</button>
+</form> 
+<label for="sortReviews" class="text-dark mb-3">Sort by:</label>
+<select id="sortReviews" class="form-select" aria-label="Sort Reviews">
+  <option value="defaultOption" selected>Choose Sort Option</option>
+  <option value="newest">Newest</option>
+  <option value="ratingHigh">Rating High</option>
+  <option value="ratingLow">Rating Low</option>
+  <option value="price">Price</option> 
+</select>
+      <form class="bg-light p-3 rounded shadow-sm">
+    <section>
+        <h5>Price Range</h5>
+        <label><input type="checkbox" name="price" value="1"/>$</label>
+        <label><input type="checkbox" name="price" value="3"/>$$$</label>
+        <label><input type="checkbox" name="price" value="5"/>$$$$$</label>
+    </section>
+    <section>
+        <h5>Rating</h5>
+        <label><input type="checkbox" name="rating" value="3"/>★★★</label>
+        <label><input type="checkbox" name="rating" value="4"/>★★★★</label>
+        <label><input type="checkbox" name="rating" value="5"/>★★★★★</label>
+    <section class="mt-4">
+          <button type="button" id="applyFiltersBtn" class="apply-button">Apply Filters</button>
+        </section>
+      </form>
+    </aside>
+    
+    <main class="col-md-9">
+      <div id="reviewsContainer" class="row g-4 mt-3">
+    <section class="review-card" data-price="1">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+    <class="author-name">Daniel</class><br>
+      <span class="stars" data-rating="3">★★★☆☆</span>
+    </section>
+    <section class="text-end">
+        <time class="review-date text-muted">21.07.2025</time>
+              <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+                <li><span class="icon">🍴</span>Vegeterian</li>
+          <li><span class="icon">📅</span>Weekend</li>
+          <li><span class="icon">👥</span>Family Dinner</li>
+              </ul>
+    </section>
+  </header>
+          <h5 class="review-title mt-3">Luigi's Trattoria</h5>
+                  <h4 class="review-subtitle text-secondary">Great Restaurant for a Family Dinner</h4>
+<article class="review-content mt-3">
+          <p class="emoji-paragraph"><span class="emoji">😊</span>
+    Really good restaurant for big dinners<br>
+    Free parking nearby<br>
+    Nice kid's meals<br>
+    Great variety of veggy options
+  </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>Slow service at peak hours</p>
+          </article>
+    </section>
+
+<section class="review-card" data-price="3">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Roni</class><br>
+      <span class="stars" data-rating="4">★★★★☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">15.06.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>Vegan</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>Birthday</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Convivium Osteria</h5>
+  <h4 class="review-subtitle text-secondary">Perfect Spot for a Kosher Italian Celebration</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Delicious kosher Italian dishes<br>
+      Cozy and welcoming atmosphere<br>
+      Attentive staff<br>
+      Great place for birthday dinners
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+    Menu is a bit pricey for larger groups</p>
+  </article>
+</section>
+
+<section class="review-card" data-price="5">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Romi</class><br>
+      <span class="stars" data-rating="4">★★★★☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">22.06.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>Gluten Free</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>Date Night</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Luigi's Roma</h5>
+  <h4 class="review-subtitle text-secondary">Fancy Restaurant for Special Occasions</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Chef level dishes<br>
+      Intimate vibes<br>
+      Gluten free options<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Consider the prices before you arrive<br>
+      Very hard to get a table on weekends without a reservation<br> 
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="1">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Nir</class><br>
+      <span class="stars" data-rating="3">★★★☆☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">05.07.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>No Special Preferences</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>Birthday</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">McDonald's</h5>
+  <h4 class="review-subtitle text-secondary">Nice Restaurant for a Kid's Birthday</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Loved by kids<br>
+      Decent prices<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Long waiting time during peak hours<br>
+      Food is sometimes lukewarm instead of hot<br>
+      Cleanliness can be an issue<br> 
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="3">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Omer</class><br>
+      <span class="stars" data-rating="4">★★★★☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">16.03.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>Vegan</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>Date Night</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Cafe Bouloud</h5>
+  <h4 class="review-subtitle text-secondary">My Favorite Coffee In Town!</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Great coffee<br>
+      Good atmosphere<br>
+      Nice location<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Prices are not as budget-friendly as they used to be<br>
+      The place is usually crowded and it’s hard to find a seat<br> 
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="5">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Asaf</class><br>
+      <span class="stars" data-rating="5">★★★★★</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">28.05.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>No Special Preferences</li>
+        <li><span class="icon">📅</span>Weekend</li>
+        <li><span class="icon">👥</span>Family Dinner</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Kisu</h5>
+  <h4 class="review-subtitle text-secondary">Worth a Visit if You Appreciate Authentic Asian Flavors</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Wide selection of sushi and stir-fry dishes<br>
+      Great service and attention to detail<br>
+      Beautiful ambiance and decor<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      No availability on weekends unless you book at least a week in advance<br> 
+      The menu is pricey and may not suit everyone’s budget<br>
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="5">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Noa</class><br>
+      <span class="stars" data-rating="5">★★★★★</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">10.12.2024</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>No Special Preferences</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>No Occasion</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">GDB</h5>
+  <h4 class="review-subtitle text-secondary">The Best Burger In Tel Aviv, Trust Me!</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      The tastiest burger I have tried<br>
+      Reasonably priced compared to Tel Aviv standards<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Couldn't think of anything negative – highly recommended<br> 
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="3">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Coral</class><br>
+      <span class="stars" data-rating="4">★★★★☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">13.02.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>No Special Preferences</li>
+        <li><span class="icon">📅</span>Weekday</li>
+        <li><span class="icon">👥</span>Date Night</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Cafein</h5>
+  <h4 class="review-subtitle text-secondary">My Go-To Spot for a Cozy Morning Meal</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Rich breakfast menu with great variety<br>
+      Friendly neighborhood vibe<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Often fully booked even on weekday mornings<br>
+      The rest of the menu is somewhat limited<br> 
+    </p>
+  </article>
+</section>
+
+<section class="review-card" data-price="1">
+  <header class="d-flex justify-content-between align-items-start">
+    <section class="text-start">
+      <class="author-name">Yoni</class><br>
+      <span class="stars" data-rating="3">★★★☆☆</span>
+    </section>
+    <section class="text-end">
+      <time class="review-date text-muted">17.06.2025</time>
+      <ul class="review-info d-flex justify-content-end gap-3 mt-2 mb-0">
+        <li><span class="icon">🍴</span>No Special Preferences</li>
+        <li><span class="icon">📅</span>Weekend</li>
+        <li><span class="icon">👥</span>No Occasion</li>
+      </ul>
+    </section>
+  </header>
+  <h5 class="review-title mt-3">Japanika</h5>
+  <h4 class="review-subtitle text-secondary">Decent Prices, Needs Improvement in Service</h4>
+  <article class="review-content mt-3">
+    <p class="emoji-paragraph"><span class="emoji">😊</span>
+      Affordable menu with a great variety of options<br>
+      The loyalty club is a nice touch- saves a lot of money<br>
+    </p>
+    <p class="emoji-paragraph"><span class="emoji">☹️</span>
+      Service can be very slow, especially on weekends<br>
+      Cleanliness could be improved – tables and floors weren't always tidy<br> 
+    </p>
+  </article>
+</section>
+      </div>
+    </main>
+  <p id="noResultsMessage" class="no-results-message"></p>
+
+
+
+
+
+
+<footer class="bg-white text-dark pt-4 border-top">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-md-3 mb-4">
+        <img src="logo_no_bg.png" alt="DineWise Logo" style="height: 80px;" />
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-sky-dark">Categories</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-dark text-decoration-none">Italian</a></li>
+          <li><a href="#" class="text-dark text-decoration-none">Asian</a></li>
+          <li><a href="#" class="text-dark text-decoration-none">Burger</a></li>
+          <li><a href="#" class="text-dark text-decoration-none">Vegetarian</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 mb-4">
+        <h5 class="fw-bold text-sky-dark">Contact Us!</h5>
+        <p class="mb-1">📧 <a href="mailto:info@dinewise.com" class="text-dark text-decoration-none">info@dinewise.com</a></p>
+        <p>📞 03-1234567</p>
+      </div>
+    </div>
+    
+
+    <div class="text-center border-top pt-3 pb-2">
+      <small class="text-muted">&copy; 2025 DineWise Inc. | Serving flavor, one bite at a time 🍽️</small>
+    </div>
+  </div>
+</footer>
+
+    <script>
+      if (typeof jQuery=="undefined") {
+        alert("JQuery is Undefined.");
+      }
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"></script>
+    <script src="Reviews_Filter.js"></script> 
+    <script src="Reviews_Search_Sort.js"></script> 
+    <script src="add_Review.js"></script> 
+</body>
+</html>
