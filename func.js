@@ -65,32 +65,34 @@ const restaurants = [
 ];
 
 document.getElementById('surpriseBtn').addEventListener('click', () => {
-  const selectedCategory = document.getElementById('categorySelect').value.toLowerCase();
+  const selectedCategory = document.getElementById('categorySelect').value;
 
   if (!selectedCategory) {
     alert('Please select a category');
     return;
   }
 
-  const filteredRestaurants = restaurants.filter(r => r.category === selectedCategory);
+  const filteredRestaurants = restaurants.filter(r => r.category.toUpperCase() === selectedCategory.toUpperCase());
 
   if (filteredRestaurants.length === 0) {
     alert('No restaurants found in this category.');
     return;
   }
 
-  // בוחר רנדומלית מסעדה מתוך המסוננות
   const randomRestaurant = filteredRestaurants[Math.floor(Math.random() * filteredRestaurants.length)];
 
-  // מציג את הפרטים בדף
   document.getElementById('resName').textContent = randomRestaurant.name;
   document.getElementById('resImage').src = randomRestaurant.image;
   document.getElementById('resImage').alt = randomRestaurant.name;
   document.getElementById('resDesc').textContent = randomRestaurant.description;
 
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomRestaurant.address)}`;
-  document.getElementById('resAddr').textContent = randomRestaurant.address;
   document.getElementById('resAddrLink').href = mapsUrl;
+  document.getElementById('resAddrLink').textContent = randomRestaurant.address;
 
   document.getElementById('resultContainer').style.display = 'block';
+});
+
+document.getElementById('bookBtn').addEventListener('click', () => {
+  alert('Not implemented');
 });
