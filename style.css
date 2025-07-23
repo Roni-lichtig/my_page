@@ -1,72 +1,45 @@
-main {
-  position: relative;
-  padding-top: 15px;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f7f9;
 }
 
-/* row animation on swap */
-.row {
-  transition: flex-direction 0.3s ease;
-}
-
-.row.swapped {
-  flex-direction: row-reverse;
+.custom-header {
+  background-color: #003f5c;
 }
 
 .logo-img {
-  height: 250px;
+  height: 80px;
+  width: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.res-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .address-title {
-  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 .address-link {
   text-decoration: none;
-  color: inherit;
+  color: #003f5c;
+  font-weight: 500;
 }
 
-.uniform-img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-
-.custom-header {
-  background-color: #343a40;
-  padding: 1rem 0;
-}
-
-.custom-header img {
-  height: 50px;
-  width: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.custom-header .container {
-  text-align: center;
-}
-
-footer a:hover {
+.address-link:hover {
   text-decoration: underline;
 }
 
-.back-button {
-  margin-top: 2rem;
-  display: inline-block;
-}
-
-/* תוספת לעיצוב כרטיס */
-#restaurantInfo {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  align-items: center;
-}
-
-.hidden {
-  display: none;
+footer {
+  margin-top: 50px;
+  background-color: #003f5c;
 }
