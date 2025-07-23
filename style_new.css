@@ -45,6 +45,24 @@ main {
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
+.btn-reserve {
+  background-color: #FFC107; 
+  color: white;             
+  border: 2px solid #FFC107;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-reserve:hover {
+  background-color: #e0a800; 
+  color: white;
+  border-color: #e0a800;
+  cursor: pointer;
+}
+
+
 .custom-header {
   background-color: #343a40;
   padding: 1rem 0;
