@@ -77,6 +77,11 @@ document.getElementById('surpriseBtn').addEventListener('click', () => {
   document.getElementById('resName').textContent = randomRes.name;
   document.getElementById('resImage').src = randomRes.image;
   document.getElementById('resDesc').textContent = randomRes.description;
+
+  // יצירת לינק לגוגל מפות
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomRes.address)}`;
   document.getElementById('resAddr').textContent = randomRes.address;
+  document.getElementById('resAddrLink').href = mapsLink;
+
   document.getElementById('restaurantInfo').classList.remove('hidden');
 });
